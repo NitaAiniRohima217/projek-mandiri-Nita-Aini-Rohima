@@ -1,0 +1,519 @@
+video youtube:
+https://youtu.be/DZmvl5VK674?si=lD6Cw0T7qvXVtWmk
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio - Nita Aini Rohima</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #2980b9;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+            scroll-behavior: smooth;
+        }
+        
+        .navbar {
+            background-color: var(--primary-color);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-brand, .nav-link {
+            color: white !important;
+        }
+        
+        .nav-link:hover {
+            color: var(--secondary-color) !important;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 150px 0 100px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 50px;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--secondary-color);
+            border-radius: 2px;
+        }
+        
+        .skill-item, .experience-card, .contact-info {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            border-left: 4px solid var(--secondary-color);
+        }
+        
+        .skill-item:hover, .experience-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .skill-icon {
+            font-size: 2rem;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+        
+        .experience-img {
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            margin-right: 10px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--secondary-color);
+            color: white;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+        
+        .btn-primary {
+            background-color: var(--secondary-color);
+            border: none;
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 30px 0;
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--secondary-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-3px);
+            color: white;
+        }
+        
+        .highlight {
+            color: var(--secondary-color);
+            font-weight: 600;
+        }
+        
+        .skill-category {
+            margin-bottom: 30px;
+        }
+        
+        .skill-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .skill-list li {
+            margin-bottom: 15px;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .skill-list li:before {
+            content: "•";
+            color: var(--secondary-color);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            font-size: 1.2rem;
+        }
+        
+        .skill-name {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        
+        .skill-desc {
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <!-- atas sendiri ini -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">Portofolio</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">Tentang Saya</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills">Keahlian</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#experience">Pengalaman</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Kontak</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- tampilan awal yang foto profil -->
+    <section id="home" class="hero-section">
+        <div class="container text-center">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <img src="diri.img.jpg" alt="Foto Profil Nita Aini Rohima" class="profile-img mb-4">
+                    <h1 class="display-4 fw-bold mb-3">Nita Aini Rohima</h1>
+                    <p class="lead mb-4">Mahasiswa | Web Developer | Pengusaha</p>
+                    <a href="#experience" class="btn btn-light btn-lg">Lihat Pengalaman Saya</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--ini tentang saya atau about -->
+    <section id="about" class="py-5">
+        <div class="container">
+            <h2 class="section-title text-center">Tentang Saya</h2>
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h3 class="mb-3">Halo, saya <span class="highlight">Nita Aini Rohima</span></h3>
+                    <p class="mb-4">Saya adalah mahasiswa semester 3 di <span class="highlight">Universitas Negeri Surabaya</span>, prodi Teknik Informatika. Saya memiliki minat dalam pengembangan web dan desain antarmuka pengguna.</p>
+                    <p class="mb-4">Selama perkuliahan, saya telah mempelajari <span class="highlight">HTML, CSS, JavaScript, Python, dan C++</span>. Saya juga tertarik dalam UI/UX design dan pengembangan aplikasi. Saya juga memiliki minat dalam dunia ekspor dan impor.</p>
+                    <p>Saya selalu berusaha dan semangat untuk belajar hal baru dan menerapkan pengetahuan saya dari hal yang telah saya pelajari.</p>
+                </div>
+                <div class="col-lg-6">
+                    <div class="row mt-4 mt-lg-0">
+                        <div class="col-md-6 mb-4">
+                            <div class="skill-item">
+                                <i class="fas fa-graduation-cap skill-icon"></i>
+                                <h5>Pendidikan</h5>
+                                <p>Teknik Informatika - Universitas Negeri Surabaya</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="skill-item">
+                                <i class="fas fa-briefcase skill-icon"></i>
+                                <h5>Pengalaman</h5>
+                                <p>Import barang dari Korea, China, USA dan Thailand. Menjual slime dan squishy.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="skill-item">
+                                <i class="fas fa-music skill-icon"></i>
+                                <h5>Musik Favorit</h5>
+                                <p>Sheila on 7</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="skill-item">
+                                <i class="fas fa-heart skill-icon"></i>
+                                <h5>Hobi</h5>
+                                <p>Membaca, mendengarkan musik, travelling, dan vlog "a day in my life"</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- keahlian ini -->
+    <section id="skills" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title text-center">Keahlian</h2>
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <div class="skill-category">
+                        <h4 class="mb-4">Soft Skills</h4>
+                        <ul class="skill-list">
+                            <li>
+                                <div class="skill-name">Komunikasi yang Baik</div>
+                                <div class="skill-desc">Mampu menyampaikan ide dan informasi dengan jelas dan efektif kepada berbagai pihak</div>
+                            </li>
+                            <li>
+                                <div class="skill-name">Kerja Tim</div>
+                                <div class="skill-desc">Dapat bekerja sama dalam tim dengan baik dan berkontribusi aktif untuk mencapai tujuan bersama</div>
+                            </li>
+                            <li>
+                                <div class="skill-name">Manajemen Waktu</div>
+                                <div class="skill-desc">Mampu mengatur waktu dengan efektif dan menyelesaikan tugas sesuai deadline yang ditetapkan</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="skill-category">
+                        <h4 class="mb-4">Technical Skills</h4>
+                        <ul class="skill-list">
+                            <li>
+                                <div class="skill-name">HTML/CSS</div>
+                                <div class="skill-desc">Pemahaman dasar dalam membuat struktur website dan styling dengan CSS</div>
+                            </li>
+                            <li>
+                                <div class="skill-name">Microsoft Word</div>
+                                <div class="skill-desc">Kemampuan yang baik dalam membuat dan memformat dokumen</div>
+                            </li>
+                            <li>
+                                <div class="skill-name">Microsoft Excel</div>
+                                <div class="skill-desc">Mampu menggunakan fungsi dasar Excel untuk pengolahan data</div>
+                            </li>
+                            <li>
+                                <div class="skill-name">PowerPoint</div>
+                                <div class="skill-desc">Kemampuan membuat presentasi yang menarik dan informatif</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--ini pengalaman kerja -->
+    <section id="experience" class="py-5">
+        <div class="container">
+            <h2 class="section-title text-center">Pengalaman Saya</h2>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="experience-card">
+                        <img src="testi.img.jpg" class="experience-img w-100" alt="Photocard dari Korea Selatan">
+                        <h5>Jual Photocard Impor dari Korea Selatan</h5>
+                        <p>Saya mengimpor dan menjual photocard dari berbagai artis Korea Selatan. Pengalaman ini mengajarkan saya tentang proses impor, pemasaran online, dan melayani pelanggan.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="experience-card">
+                        <img src="korea.img.jpg" class="experience-img w-100" alt="Komunikasi dengan Supplier Korea">
+                        <h5>Komunikasi dengan Supplier Korea</h5>
+                        <p>Berinteraksi dengan supplier dari Korea untuk negosiasi harga dan ketersediaan barang. Pengalaman ini meningkatkan kemampuan komunikasi dan negosiasi bisnis saya.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-12">
+                    <div class="skill-item">
+                        <h4 class="text-center mb-4">Pengalaman Bisnis Lainnya</h4>
+                        <div class="row">
+                            <div class="col-md-4 text-center mb-3">
+                                <i class="fas fa-globe-asia fa-2x mb-2" style="color: var(--secondary-color);"></i>
+                                <h6>Import Barang</h6>
+                                <p>Korea, China, USA, Thailand</p>
+                            </div>
+                            <div class="col-md-4 text-center mb-3">
+                                <i class="fas fa-shopping-bag fa-2x mb-2" style="color: var(--secondary-color);"></i>
+                                <h6>Produk yang Dijual</h6>
+                                <p>Slime, Squishy, Photocard</p>
+                            </div>
+                            <div class="col-md-4 text-center mb-3">
+                                <i class="fas fa-handshake fa-2x mb-2" style="color: var(--secondary-color);"></i>
+                                <h6>Negosiasi</h6>
+                                <p>Harga dan Kualitas Barang</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--ini bagian kontak -->
+    <section id="contact" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title text-center">Kontak Saya</h2>
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="contact-info">
+                        <h4 class="mb-4">Informasi Kontak</h4>
+                        <p class="mb-3">
+                            <i class="fas fa-phone contact-icon"></i>
+                            +62 898-1643-703
+                        </p>
+                        <p class="mb-4">
+                            <i class="fas fa-envelope contact-icon"></i>
+                            nitaainirohima@gmail.com
+                        </p>
+                        <div class="social-links mt-4">
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="contact-info">
+                        <h4 class="mb-4">Kirim Pesan</h4>
+                        <form id="contactForm">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="name" class="form-label">Nama Lengkap</label>
+                                    <input type="text" class="form-control" id="name" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="email" class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="email" required>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="message" class="form-label">Pesan</label>
+                                <textarea class="form-control" id="message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Kirim Pesan</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ini bawah sendiri -->
+    <footer class="text-center">
+        <div class="container">
+            <p>&copy; 2025 Nita Aini Rohima. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <a href="#" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        const backToTopButton = document.querySelector('.back-to-top');
+        
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                backToTopButton.classList.add('active');
+            } else {
+                backToTopButton.classList.remove('active');
+            }
+        });
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            alert(`Terima kasih ${name}! Pesan Anda telah berhasil dikirim. Saya akan membalas melalui email ${email} segera.`);
+            this.reset();
+        });
+    </script>
+</body>
+</html>
